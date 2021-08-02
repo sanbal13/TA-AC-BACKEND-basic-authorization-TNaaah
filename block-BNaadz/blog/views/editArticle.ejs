@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Article</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <div class="flex navigation">
+            <a href="/">
+                <h2>
+                    Blog
+                </h2>
+            </a>
+        <a href ='/articles' class='button'> Show articles </a>
+        </div>
+    </header>
+        
+    <main>      
+        <h3>Edit Article Form</h3>
+        <form action="/articles/<%= article.id%>" method="post" class='form-container'>
+            <input type="text" name="title" id="title" placeholder="Enter article title" value= "<%= article.title%>"">
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"> <%= article.description%></textarea>
+            <textarea name="tags" id="tags" cols="30" rows="10" placeholder="Enter relevant tags"> <%= article.tags%></textarea>            
+             <button type="submit">Edit Article</button>
+        </form>
+    </main>
+</body>
+</html>

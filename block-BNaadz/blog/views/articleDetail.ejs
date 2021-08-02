@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles Detail</title>
+    <title>MyDiary</title>
+    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container mx-auto px-20">
+      <%- include('partials/header') %>
+      <main>
+        <div class="article-card-detail">
+          <!-- Article Detail -->
+          <div class="article-detail">
+            <ul>
+              <li>
+                <span class="article-title">Title:</span> <%= article.title %>
+              </li>
+              <li>
+                <span class="article-title">Description:</span> <%=
+                article.description %>
+              </li>
+              <li>
+                <span class="title">Tags:</span> 
+                <% article.tags.forEach((tag) => { %>
+                <span class="tag"><%= tag %></span>
+                <% }) %>
+              </li>
+              <li>
+                <span class="title">Author:</span> <%=
+                article.author.getFullName() %>
+              </li>
+              <li><span class="title">Likes:</span> <%= article.likes %></li>
+            </ul>
+
+            <div class="button-section">
+              <a href="/articles/<%= article.id %>/edit" class="btn article-btn"
+                >Edit</a
+              >
+              <a
+                href="/articles/<%= article.id %>/delete"
+                class="btn article-btn"
+                >Delete</a
+              >
+            </div>
+
+            <div class="like-section">
+              <a href="/articles/<%= article.id %>/like" class="like-btn"
+                >Like</a
+              >
+              <a href="/articles/<%= article.id %>/dislike" class="dislike-btn"
+                >Dislike</a
+              >
+            </div>
+          </div>
+          <!-- Comment Form -->
+          <form
+            action="/articles/<%= article.id %>/comment"
+            method="post"
+            class="comment-form"
+          >
+            <textarea
+              name="content"
+              id="text"
+              cols="25"
+              rows="5"
+              placeholder="Add comment ..."
+            ></textarea>            
+            <button type="submit">Submit Comment</button>
+          </form>
+          <!-- Comment Section -->
+
+          <div class="comment-section">
+            <h4>Comments</h4>
+            <ul>
+              <% article.comments.forEach((comment) => { %>
+              <li class="comment">
+                <span class="comment-author"
+                  >Posted by <strong><%= comment.author.getFullName() %></strong></span
+                ><br>
+                <span class="comment-content"><%= comment.content %></span>
+                <div class="comment-button-section">
+                  <a
+                    href="/comments/<%= comment.id %>/edit"
+                    class="btn comment-btn"
+                    >Edit</a
+                  >
+                  <a
+                    href="/comments/<%= comment.id %>/delete"
+                    class="btn comment-btn"
+                    >Delete</a
+                  >
+                  <br />
+                  <span class="comment-like-section">
+                    <a href="/comments/<%= comment.id %>/like" class="like-btn"
+                      >Like</a
+                    >
+                    <a
+                      href="/comments/<%= comment.id %>/dislike"
+                      class="dislike-btn"
+                      >Dislike</a
+                    >
+                  </span>
+                </div>
+                <span class="likes"
+                  >Likes: <strong><%= comment.likes%></strong></span
+                >
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>
