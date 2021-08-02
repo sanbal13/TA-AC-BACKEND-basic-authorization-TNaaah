@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Form </title>
+    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <div class="container mx-auto px-20">
+        <%- include('partials/header') %>        
+    <main class='form-container'>      
+        <h3>Add article Form</h3>
+        <form action="/articles" method="post" class="blog-form">
+            <input type="text" name="title" id="title" placeholder="Enter article title">
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"></textarea>
+            <textarea name="tags" id="tags" cols="30" rows="10" placeholder="Enter relevant tags"></textarea>            
+            <button type="submit">Add article</button>
+        </form>
+    </main>
+    <%- include('partials/footer') %>
+</div>
+</body>
+</html>

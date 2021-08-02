@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyDiary | Login Form</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container mx-auto px-20">
+      <%- include('partials/header') %>
+      <main>
+        <section class="hero">
+          <div class="flex justify-between">
+            <h1 class="text-4xl font-bold w-40 text-blue-400">
+              Enter your credentials to login and contribute.
+            </h1>
+            <ul class="blog-nav flex-column">
+              <li class="btn"><a href=#login>Login</a></li>
+              <li class="btn"><a href="/users/register">Register</a></li>
+              <li class="btn"><a href="/blogs/#all-blogs">View Blogs</a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="form">
+          <form action="/users/login" method="post">
+            <h3 id="login">Login Form</h3>
+            <% if(error) { %>
+              <p class="error"><%= error %></p>
+            <% } %>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+            <button type="submit">Login</button>
+          </form>
+        </section>
+      </main>
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyDiary | Blogs</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/tailwind.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+  </head>
+  <body>
+    <div class="container mx-auto px-20">
+    <%- include('partials/header') %>
+    <main>
+    <section class="hero">
+    <div class="flex justify-between">
+    <h1 class="text-4xl font-bold  w-60 text-blue-400">This page will give access to all the blogs in this site. You can share your thoughts on the existing blogs as well as create your own blog articles.        
+    </h1>   
+    <ul class="blog-nav flex-column">
+        <li class="btn"><a href="/users/login">Login</a></li>
+        <li class="btn"><a href="/users/register">Register</a></li>
+        <li class="btn"><a href="#all-blogs">View Articles</a></li>
+        <li class="btn"><a href="articles/myArticles">My Articles</a></li>
+        <li class="btn"><a href="/users/logout">Logout</a></li>
+    </ul>
+    </div>    
+    </section>  
+    <section class="blogs" id="all-blogs">
+        <% var name = user ? user.getFullName() : 'Guest' %>
+        <%# fullName || 'Guest' %> <!-- Alternative -->
+        <%# user.firstName + " " + user.lastName %>   <!-- Alternative -->
+        <% if(name) { %>
+          <h3>Hello <%= name %>!</h3>
+        <% } %>
+        <a href='/articles/new' class="flex flex-row justify-start items-center write-link">
+          <div class="write-img">
+            <img src="/images/pen.jpg" alt="Pen">
+          </div>
+          <div class="write-text">
+            Write an Article
+          </div>
+        </a>
+        <div class="display-articles"> <% if(articles.length > 0) { %>
+          <ol>
+              <% articles.forEach((article) => { %>
+               <li>
+                   <ul class="article-card-brief">
+                    <small>
+                      Posted by <strong><%= article.author.getFullName() %></strong> on    
+                      <%= String(article.createdAt).slice(0, 16) %><br>   
+                    </small> 
+                      <h4 class="article-brief-heading"><%= article.title %></h4>
+                      
+                      <p><%= article.description %></p>                      
+                       <a href='/articles/<%= article.slug %>' class="btn card-btn">Show Detail</a>                    
+                   </ul> 
+               </li>
+              <% }) %>
+          </ol>
+       <% }  else {  %>
+         <h3>No Articles Present</h3>
+       <% } %>         
+            </div>
+           </section>
+    </main>
+    <%- include('partials/scripts') %>
+    <%- include('partials/footer') %>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+body {
+    background: rgb(212, 209, 209);
+}
+.hero {
+    background: url('../images/hero-background.jpg');
+    background-size: content;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5rem;
+    border-radius: 1rem;
+}
+.btn {
+    padding: 1rem;
+    background: #EF4444;
+    margin: 1rem;
+    border-radius: .5rem;
+    color: cyan;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    box-shadow: 1px 1px 5px black;
+    display: block;
+}
+.card-btn, .article-btn, .comment-btn {
+    padding: .5rem;
+    margin: 1rem 0;
+}
+.article-btn, .comment-btn {
+    display: inline-block;
+}
+.like-btn, .dislike-btn {
+    padding: .5rem;
+    box-shadow: 1px 1px 5px #000;
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.like-btn {
+    background-color: green;
+    margin-right: .5rem;
+}
+.dislike-btn {
+    background-color: red;
+}
+.btn:hover {
+    background: #FCA5A5;
+    color: #2563EB;
+}
+
+/************************* Headings *************************/
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+h1 {
+    font-size: 2.5rem
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.75rem;
+}
+h4 {
+    font-size: 1.5rem;
+}
+
+
+/************************* Header *************************/
+header {
+    padding: 1rem;
+}
+
+.brand-img {
+    border: 1rem solid black;
+    box-shadow: 10px 10px 20px grey;
+}
+.brand {
+    font-size: 2rem;
+    font-weight: 700;    
+}
+h1 {
+    text-shadow: 1px 1px 2px #000;
+    margin-left: 10rem;
+    font-style: italic;
+   
+}
+.nav-menu a {
+    font-size: 1.5rem;
+    color: #4c8fdd;
+}
+.nav-menu a:hover {
+    font-size: 1.5rem;
+    color: violet;
+    font-weight: 700;
+}
+.current-link {
+    color: orangered;
+    background-color: palegreen;
+    outline: 5px solid palegreen;
+}
+/************************* Main *************************/
+form {
+    width: 500px;
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 5px double #EF4444;
+    padding: 2rem;
+}
+.form {
+    background: linear-gradient(45deg, #9CA3AF,#E5E7EB 75%);
+    padding: 5rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    border-left: 5rem solid black;
+    box-shadow: 1px 1px 5px grey;
+}
+.blog-form {
+    width: 700px;
+}
+.error {
+    color: red;
+}
+
+
+input, button, textarea {
+    margin: .5rem;
+    border: 2px solid grey;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+button {
+    box-shadow: 1px 1px 5px grey;
+    background: #ec7878;
+}   
+button:hover {
+    box-shadow: 1px 1px 5px rgb(63, 62, 62);
+    background: #e94a4a;
+}
+
+.blogs {
+    background: radial-gradient( grey, lightgrey);
+    margin: 1rem 0;
+    padding: 1rem;
+}
+.write-link {
+    background: grey;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid #e94a4a;
+    box-shadow: 2px 2px 5px #000;  
+    display: inline-block;
+}
+.write-link:hover {
+    box-shadow: 2px 2px 10px #000;  
+    background: rgb(80, 79, 79);
+    cursor: pointer;
+}
+.write-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px #000; 
+}
+.write-img:hover {
+    box-shadow: 1px 1px 20px #000; 
+}
+.write-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: .2rem solid #EF4444;    
+}
+.write-text {
+    margin-left: .5rem;
+    color: #eba4a4;
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 1px 1px 1px #000;
+}
+.article-card-brief {
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: rgb(134, 133, 133);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 5px #fff;
+    width: 50%;
+}
+.article-brief-heading {
+    margin-bottom: 0;
+}
+.article-title {
+    font-weight: 700;
+}
+.tag {
+    background-color: hotpink;
+    padding: .2rem;
+}
+.article-card-detail, .comment {
+    box-shadow: inset 0px 0px 20px grey;
+    padding: 1rem;
+}
+.comment {
+    margin-top: 1rem;
+}
+.comment-author {
+    font-size: .9rem;
+}
+/************************* Footer *************************/
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: grey;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: .1rem;
+}
