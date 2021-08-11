@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyProducts</title>
+  <%- include('partials/includes') %>
+</head>
+<body>
+        <%- include('partials/header') %>
+        <main class="container">
+          <div class="product-card-detail">
+            <!-- Product Detail -->
+            <div class="product-detail flex">
+              <ul>
+                <li>
+                  <span class="product-title">Title:</span> <%= product.name %>
+                </li>
+                <li>
+                  <span class="product-title">Description:</span> <%=
+                  product.name %>
+                </li>      
+               <li>
+                <img src="data:image/<%= product.image.contentType %>;base64,
+                <%= product.image.data.toString('base64') %>" class="width-100">  
+               </li>
+                
+                <li><span class="title">Likes:</span> <%= product.likes %></li>
+              </ul>
+              <% if(user && user.isAdmin) { %>              
+              <div class="button-section">
+                <a href="/products/<%= product.id %>/edit" class="btn product-btn"
+                  >Edit</a
+                >
+                <a
+                  href="/products/<%= product.id %>/delete"
+                  class="btn product-btn"
+                  >Delete</a
+                >
+              </div>
+              <% } else { %>                
+              <div class="like-section">
+                <a href="/products/<%= product.id %>/like" class="like-btn"
+                  >Like</a
+                >
+                <a href="/products/<%= product.id %>/dislike" class="dislike-btn"
+                  >Dislike</a
+                >
+                <a href="/carts/<%= product.id %>" class="btn"
+                  >Add to Cart</a
+                >
+              </div>
+            </div>
+            <!-- Review Form -->
+            <form
+              action="/products/<%= product.id %>/review"
+              method="post"
+              class="review-form"
+            >
+              <textarea
+                name="content"
+                id="text"
+                cols="25"
+                rows="5"
+                placeholder="Add a review ..."
+              ></textarea>            
+              <button type="submit">Submit Review</button>
+            </form>
+            <!-- Review Section -->
+  
+            <div class="review-section">
+              <h4>Reviews</h4>
+              <ul>
+                <% if(product.reviews) { %>                
+                <% product.reviews.forEach((review) => { %>
+                <li class="review">
+                  <span class="review-author"
+                    >Posted by <strong><%= review.userId.name %></strong></span
+                  ><br>
+                  <span class="review-content"><%= review.content %></span>
+                  <% if(user && user.id === review.userId.id) { %>                  
+                  <div class="review-button-section">
+                    <a
+                      href="/reviews/<%= review.id %>/edit"
+                      class="btn review-btn"
+                      >Edit</a
+                    >
+                    <a
+                      href="/reviews/<%= review.id %>/delete"
+                      class="btn review-btn"
+                      >Delete</a
+                    >
+                    <% } else { %>                
+                    
+                    <span class="review-like-section">
+                      <a href="/reviews/<%= review.id %>/like" class="like-btn"
+                        >Like</a
+                      >
+                      <a
+                        href="/reviews/<%= review.id %>/dislike"
+                        class="dislike-btn"
+                        >Dislike</a
+                      >
+                    </span>
+                    <% } %>
+                  </div>
+                  <span class="likes"
+                    >Likes: <strong><%= review.likes%></strong></span
+                  >
+                </li>                
+                <% }) %>
+                <% } %>
+                <% } %>
+              </ul>
+            </div>
+          </div>
+        </main>
+        <%- include('partials/footer') %>
+</body>
+</html>
