@@ -1,0 +1,263 @@
+/********************* General *********************/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+}
+a {
+    text-decoration: none;
+}
+i {
+    text-shadow: 1px 1px 1px #000;
+}
+p {
+   color: rgb(69, 102, 4);
+}
+img { 
+    width: 100%;
+}
+
+.container {
+    margin: 2rem auto;
+}
+.btn {
+    background-color: yellow;
+    padding: .5rem;
+    margin-right: 1rem;
+}
+.width-100 {
+    width: 20%;
+}
+/********************* Flex *********************/
+.flex-19 {
+    flex: 0 1 19%;
+}
+.flex-30 {
+    flex: 0 1 30%;
+}
+
+.flex-45 {
+    flex: 0 1 45%;
+}
+
+/********************* Heading *********************/
+h1, h2, h3, h4 {
+    font-weight: 700;
+    color: rgb(187, 187, 3)
+}
+h1{
+    font-size: 5rem;
+}
+h2{
+    font-size: 2.5rem;
+}
+h3{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+h4{
+    font-size: 1.7rem;
+}
+
+.section-heading {
+    text-align: center;
+    margin: 1rem;
+}
+
+/********************* Header *********************/
+header {
+    background-color: grey;
+}
+.brand {
+    text-shadow: 1px 1px 1px #000;
+    font-family: 'MonteCarlo', cursive;    
+}
+.user {
+    font-size: 1.2rem;
+    color:rgb(92, 50, 8);
+    font-weight: 700;
+}
+.login {
+    color: green;
+    font-size: 1.5rem;
+    background-color: yellow;
+    font-weight: 700;
+    vertical-align: middle;
+    padding: .5rem 1rem;
+    border-radius: .1rem;
+    box-shadow: 1px 1px 2px #000;
+}
+.login:hover {
+    background-color: green;
+    color: yellow;
+}
+.search {
+    width: 40rem;
+}
+.search-symbol {
+    border: 2px solid yellow;
+}
+.search-symbol:hover {
+    background-color: yellow;
+}
+.cart {
+    position: relative;
+}
+.circle {
+    background-color: blue;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    top: -10px;
+    right: 0px;
+}
+/********************* Hero *********************/
+.hero {
+    font-size: 5rem;
+    background: url('/images/shopping-hero2.jpg') -25%, url('/images/shopping-hero.jpg') 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 5rem;
+    text-shadow: 1px 1px 1px #000;
+} 
+.hero p {
+    width: 35%;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/********************* About *********************/
+.about {
+    box-shadow: 1px 1px 5px grey;
+    border-radius: .7rem;
+    position: relative;
+    left: 20rem;
+    width: 10%;
+    background-color:rgba(173, 255, 47, .5);
+    padding: 5rem;
+    font-size: 1.2rem;
+}
+.about-img {   
+        width: 70%;
+        height: 100%;
+        border-radius: 1rem;
+        margin-left: 10rem;
+        box-shadow: 1px 1px 1rem grey;
+}
+
+/********************* Product's Section *********************/
+.product-card {
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 1px 1px 5px grey;
+    margin: 1rem;
+}
+/********************* Form *********************/
+form {
+    border: 2px solid yellowgreen;
+    border-radius: .5rem;
+    padding: 4rem;
+    width: 40%;
+    margin: 0 auto;
+    border-left: 2rem solid yellowgreen;
+}
+form h3 {
+    text-align: center;
+}
+form input, form button {
+    width: 95%;
+    padding: .8rem;
+    border-radius: .5rem;
+    border:0;
+    outline: 0;
+    background-color: rgba(154, 205, 50, .3);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+form input:focus {
+    background-color: rgba(154, 205, 50, .5);    
+}
+form:hover {
+    border: 2px solid rgb(90, 131, 7);
+    border-left: 2rem solid rgb(90, 131, 7);    
+}
+form button {
+    background-color: rgba(154, 205, 50, .8);
+    cursor: pointer;
+}
+form button:hover {
+    background-color: rgb(154, 205, 50);
+    color: rgb(92, 50, 8);
+}
+form a {
+    display: inline-block;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    color: rgb(69, 102, 4);
+    text-decoration: underline;
+}
+form a:hover {
+    color:peru;
+}
+.radio input, .radio label {    
+    width: unset;
+    cursor: pointer;
+}
+.error {
+    color: red;
+}
+/********************* Products *********************/
+.product-card-brief {
+    box-shadow: 1px 1px 5px grey;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    margin-right: 1%;
+}
+.cover {
+    /* border: 1px solid rgb(228, 227, 227); */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+/********************* Dashboard *********************/
+.all-user {
+    border: 1px solid grey;
+    margin-top: 1rem;
+    padding: .5rem;
+}
+/********************* Footer *********************/
+footer {
+    color: #fff;
+    background-color: grey;
+}
+.footer-top {
+background-color: grey;
+}
+.footer-top a {
+    color: #fff;
+    border-bottom: 1px solid #000;
+}
+.footer-bottom {
+    background-color: grey;
+    margin: 0 auto;
+    border-bottom: 1px solid #000;
+    width: 60%;
+}
+.footer-copyright {
+    background-color: grey;
+}
+footer li {
+    margin: .5rem;
+}

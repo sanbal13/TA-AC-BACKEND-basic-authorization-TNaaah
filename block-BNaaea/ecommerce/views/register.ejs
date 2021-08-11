@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <%- include('partials/includes') -%>
+  </head>
+  <body>    
+    <%- include('partials/header') -%>
+    <main class="container">
+      <form action="/users/register" method="post">
+        <h3>Registration Form</h3>
+        <% var errorArray = [] 
+               if(error) 
+               {  error = error.slice(24);
+                  errorArray = error.split(',');
+               }                  
+            %>
+        <div class="radio">
+          <input type="radio" name="admin" id="admin" value="admin" />
+          <label for="admin">Admin</label>
+          <input type="radio" name="admin" id="normal" value="normal" checked="true" />
+          <label for="normal">Normal</label>
+        </div>
+        <% errorArray.forEach((err) => { 
+          if(err.trim().startsWith('name')) { %>
+          <p class="error">
+            <%= err.trim().slice("name: Path".length + 1) %>
+          </p>
+          <% }}) %>
+        <input
+          type="name"
+          name="name"
+          id="name"
+          placeholder="Enter your name"
+        />
+        <% errorArray.forEach((err) => { 
+          if(err.trim().startsWith('email')) { %>
+          <p class="error">
+            <%= err.trim().slice("email: Path".length + 1) %>
+          </p>
+          <% } %> <% }) %>
+          <% if(emailUniqueError) { %>
+            <p class="error">
+              <%= emailUniqueError %>
+            </p> 
+          <% } %>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email"
+        />
+        <% errorArray.forEach((err) => { %> <%
+          if(err.trim().startsWith('password')) { %>
+          <p class="error">
+            <%= "Password must be of minimum 4 characters" %>
+          </p>
+          <% } %> <% }) %>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+        <% errorArray.forEach((err) => { 
+          if(err.trim().startsWith('age')) { %>
+          <p class="error">
+            <%= err.trim().slice("age: Path".length + 1) %>
+          </p>
+          <% }}) %>
+        <input type="number" name="age" id="age" placeholder="Enter your age" />
+        <% errorArray.forEach((err) => { 
+          if(err.trim().startsWith('phone')) { %>
+          <p class="error">
+            <%= err.trim().slice("phone: Path".length + 1) %>
+          </p>
+          <% }}) %>
+          <% if(NaNError) { %>
+            <p class="error">
+              <%= NaNError %>
+            </p> 
+          <% } %>
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          placeholder="Enter your phone number"
+        />
+        <button type="submit">Register User</button>        
+      </form>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>
