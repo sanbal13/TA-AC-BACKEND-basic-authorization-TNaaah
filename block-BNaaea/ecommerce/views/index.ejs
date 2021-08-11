@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyProducts</title>
+  <%- include('partials/includes') %>
+</head>
+<body>
+        <%- include('partials/header') %>
+      <main>
+        <section class="hero">
+          <h1>Shopping on <strong class='brand'>MyProducts</strong></h1>
+          <p> Brings happiness to life.
+              Pocket Friendly.
+              Consequently brings a smile. </p>          
+        </section>
+        <section class="flex container items-center ">
+          <div class="flex-45 about p-4">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem modi odit veritatis eaque! Odit molestias, culpa cum, eum illum accusamus voluptatem nostrum sit quibusdam dolor facere labore eius magni repudiandae.</p>
+          </div>
+          <div class="flex-45">
+            <img src="/images/about.jpg" alt="Bags" class="about-img">
+          </div>
+        </section>
+        <section class="products container">
+          <h2 class="section-heading"> Our Products </h2>
+          <div class="flex">
+          <div class="flex-30 product-card">
+            <img src="/images/clothes.jpg" alt="clothes">
+            <div class="product-description">
+              <h3> Garments </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod hic quis? Dolorum est, iure, vel nostrum, commodi nisi fugiat exercitationem possimus veritatis voluptate sapiente enim asperiores animi amet. Excepturi?</p>
+            </div>
+          </div>
+          <div class="flex-30 product-card">
+            <img src="/images/food.jpg" alt="food">
+            <div class="product-description">
+              <h3> Foodstuffs </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod hic quis? Dolorum est, iure, vel nostrum, commodi nisi fugiat exercitationem possimus veritatis voluptate sapiente enim asperiores animi amet. Excepturi?</p>
+            </div>
+          </div>
+          <div class="flex-30 product-card">
+            <img src="/images/electronics.jpg" alt="electronics">
+            <div class="product-description">
+              <h3> Electronics </h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod hic quis? Dolorum est, iure, vel nostrum, commodi nisi fugiat exercitationem possimus veritatis voluptate sapiente enim asperiores animi amet. Excepturi?</p>
+            </div>
+          </div>
+        </div>
+        </section>
+      </main>
+        <%- include('partials/footer') %>
+</body>
+</html>

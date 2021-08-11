@@ -1,0 +1,112 @@
+/* @tailwind base; */
+.container {
+    width: 100%
+}
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px
+    }
+}
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px
+    }
+}
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px
+    }
+}
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px
+    }
+}
+.block {
+    display: block
+}
+.flex {
+    display: flex
+}
+.w-4\/5 {
+    width: 80%
+}
+.items-center {
+    align-items: center
+}
+.justify-between {
+    justify-content: space-between
+}
+.justify-around {
+    justify-content: space-around
+}
+.rounded-l-xl {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem
+}
+.rounded-r-xl {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem
+}
+.border-2 {
+    border-width: 2px
+}
+.border-r-0 {
+    border-right-width: 0px
+}
+.border-white {
+    --tw-border-opacity: 1;
+    border-color: rgba(255, 255, 255, var(--tw-border-opacity))
+}
+.border-yellow-200 {
+    --tw-border-opacity: 1;
+    border-color: rgba(253, 230, 138, var(--tw-border-opacity))
+}
+.border-yellow-900 {
+    --tw-border-opacity: 1;
+    border-color: rgba(120, 53, 15, var(--tw-border-opacity))
+}
+.bg-gray-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity))
+}
+.bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-stops))
+}
+.from-purple-400 {
+    --tw-gradient-from: #a78bfa;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(167, 139, 250, 0))
+}
+.to-green-500 {
+    --tw-gradient-to: #10b981
+}
+.p-4 {
+    padding: 1rem
+}
+.text-center {
+    text-align: center
+}
+.text-5xl {
+    font-size: 3rem;
+    line-height: 1
+}
+.font-bold {
+    font-weight: 700
+}
+.text-yellow-400 {
+    --tw-text-opacity: 1;
+    color: rgba(251, 191, 36, var(--tw-text-opacity))
+}
+.text-yellow-600 {
+    --tw-text-opacity: 1;
+    color: rgba(217, 119, 6, var(--tw-text-opacity))
+}
+.outline-none {
+    outline: 2px solid transparent;
+    outline-offset: 2px
+}
