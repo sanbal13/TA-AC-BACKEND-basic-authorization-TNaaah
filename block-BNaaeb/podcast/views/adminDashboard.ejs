@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Podcast</title>
+    <%- include('partials/includes') %>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <h3>Admin Dashboard</h3>
+      <!--  
+        1. All users
+        2. All Products
+        3. All categories
+        4. Add categories to podcast
+        5. list categories
+        6. view podcast based on category(admin as well as users)
+        7. verify whether user or admin is logged in
+        8. logout for user and admin separately
+        9. loggedin admin can view list of all users
+        10. loggedin user can block/unblock a user 
+    -->
+      <nav>
+        <ul class="flex">
+          <li><a href="/users/all" class="btn">All Users</a></li>
+          <li><a href="/podcasts/all" class="btn">All Products</a></li>
+          <li>
+            <a href="/podcasts/allCategory" class="btn">List categories</a>
+          </li>
+          <li>
+            <a href="/podcasts/category" class="btn"
+              >Products based on category</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="dashboard-content">
+        <% if(option === 'all-users') { %> <% users.forEach((user) => { %>
+        <div class="all-user"><%= user.name %></div>
+        <% }) %> <% } else if(option === 'all-podcasts') { %> <%
+        podcasts.forEach((podcast) => { %> <%= podcast.name %> <% }) %> <% }
+        else if(option === 'category-list') { %> <% podcasts.forEach((category)
+        => { %> <%= category %> <% }) %> <% } else if(option ===
+        'category-podcasts') { %> <% podcasts.forEach((podcast) => { %> <%=
+        podcast %> <% }) %> <% } %>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

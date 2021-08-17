@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPodcast</title>
+    <%- include('partials/includes') %>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container">
+      <div class="podcast-card-detail">
+        <!-- Product Detail -->
+        <div class="podcast-detail flex">
+          <ul>
+            <li>
+              <span class="podcast-title">Title:</span> <%= podcast.name %>
+            </li>
+            <li>
+              <span class="podcast-title">Description:</span> <%= podcast.name
+              %>
+            </li>
+            <li>
+              <img
+                src="data:image/<%= podcast.image.contentType %>;base64,
+                <%= podcast.image.data.toString('base64') %>"
+                class="width-100"
+              />
+            </li>
+
+            <li><span class="title">Likes:</span> <%= podcast.likes %></li>
+          </ul>
+          <% if(user && user.isAdmin) { %>
+          <div class="button-section">
+            <a href="/podcasts/<%= podcast.id %>/edit" class="btn podcast-btn"
+              >Edit</a
+            >
+            <a href="/podcasts/<%= podcast.id %>/delete" class="btn podcast-btn"
+              >Delete</a
+            >
+          </div>
+          <% } else { %>
+          <div class="like-section">
+            <a href="/podcasts/<%= podcast.id %>/like" class="like-btn">Like</a>
+            <a href="/podcasts/<%= podcast.id %>/dislike" class="dislike-btn"
+              >Dislike</a
+            >
+            <a href="/carts/<%= podcast.id %>" class="btn">Add to Cart</a>
+          </div>
+        </div>
+        <!-- Review Form -->
+        <form
+          action="/podcasts/<%= podcast.id %>/review"
+          method="post"
+          class="review-form"
+        >
+          <textarea
+            name="content"
+            id="text"
+            cols="25"
+            rows="5"
+            placeholder="Add a review ..."
+          ></textarea>
+          <button type="submit">Submit Review</button>
+        </form>
+        <!-- Review Section -->
+
+        <div class="review-section">
+          <h4>Reviews</h4>
+          <ul>
+            <% if(podcast.reviews) { %> <% podcast.reviews.forEach((review) => {
+            %>
+            <li class="review">
+              <span class="review-author"
+                >Posted by <strong><%= review.userId.name %></strong></span
+              ><br />
+              <span class="review-content"><%= review.content %></span>
+              <% if(user && user.id === review.userId.id) { %>
+              <div class="review-button-section">
+                <a href="/reviews/<%= review.id %>/edit" class="btn review-btn"
+                  >Edit</a
+                >
+                <a
+                  href="/reviews/<%= review.id %>/delete"
+                  class="btn review-btn"
+                  >Delete</a
+                >
+                <% } else { %>
+
+                <span class="review-like-section">
+                  <a href="/reviews/<%= review.id %>/like" class="like-btn"
+                    >Like</a
+                  >
+                  <a
+                    href="/reviews/<%= review.id %>/dislike"
+                    class="dislike-btn"
+                    >Dislike</a
+                  >
+                </span>
+                <% } %>
+              </div>
+              <span class="likes"
+                >Likes: <strong><%= review.likes%></strong></span
+              >
+            </li>
+            <% }) %> <% } %> <% } %>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>
