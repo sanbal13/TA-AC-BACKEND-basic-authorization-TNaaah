@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Podcast</title>
+    <%- include('partials/includes') %>
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main>
+      <section class="podcasts-list container">
+        <% var name = user ? user.name : 'Guest' %>
+        <h3>Hello <%= name %>!</h3>
+        <div class="display-podcasts">
+          <% if(podcasts.length > 0) { %>
+          <ol class="flex cover">
+            <% podcasts.forEach((podcast, index) => { %>
+            <li class="flex-19 podcast-card-brief">
+              <ul>
+                <small>
+                  Posted by <strong><%= podcast.name %></strong> on <%=
+                  String(podcast.createdAt).slice(0, 16) %><br />
+                </small>
+                <h4 class="podcast-brief-heading"><%= podcast.title %></h4>
+
+                <p><%= podcast.description %></p>
+                <img
+                  src="data:image/<%= podcast.image.contentType %>;base64,
+                              <%= podcast.image.data.toString('base64') %>"
+                />
+                <a href="/podcasts/<%= podcast.slug %>" class="btn card-btn"
+                  >Show Detail</a
+                >
+              </ul>
+            </li>
+            <% }) %>
+          </ol>
+          <% } else { %>
+          <h3>No Products Present</h3>
+          <% } %>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

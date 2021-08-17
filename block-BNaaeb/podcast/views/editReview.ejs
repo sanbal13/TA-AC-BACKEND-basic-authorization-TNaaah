@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Review</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <header>
+        <div class="flex navigation">
+            <a href="/">
+                <h2>
+                    Blog
+                </h2>
+            </a>
+        <a href ='/articles' class='button'> Show articles </a>
+        </div>
+    </header>
+        
+    <main>      
+        <h3>Edit Review Form</h3>
+        <form action="/reviews/<%= review.id%>" method="post" class='form-container'>           
+            <textarea name="content" id="text" cols="30" rows="10" placeholder="Enter Review"> <%= review.content%></textarea>            
+             <button type="submit">Edit Review</button>
+        </form>
+    </main>
+</body>
+</html>
