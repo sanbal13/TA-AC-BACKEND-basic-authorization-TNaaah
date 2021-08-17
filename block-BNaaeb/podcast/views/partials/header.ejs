@@ -1,0 +1,67 @@
+<header id="top" class="p-4 bg-gradient-to-r from-purple-400 to-green-500">
+  <div class="flex justify-around items-center top-nav">
+    <!-- Brand -->
+    <a
+      href="/"
+      class="font-bold brand brand-text-shadow text-5xl border-2 border-white"
+    >
+      My Podcast</a
+    >
+    <!-- Search Box -->
+    <div class="search border-yellow-200 flex items-center">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        class="
+          search
+          w-4/5
+          p-4
+          border-2 border-yellow-200
+          rounded-l-xl
+          border-r-0
+          outline-none
+        "
+      />
+      <!-- Search Symbol -->
+      <span
+        class="
+          search-symbol
+          p-4
+          font-bold
+          bg-gray-100
+          rounded-r-xl
+          border-2 border-yellow-900
+        "
+        ><i class="fas fa-search"></i
+      ></span>
+    </div>
+    <% if(user) { %>
+    <strong class="user"><%= "Hello " + user.name + "!" %></strong>
+    <a href="/podcasts" class="border-2 border-yellow-900 login"
+      >View Podcasts</a
+    >
+    <% if(user.isAdmin) { %>
+    <a href="/podcasts/new" class="border-2 border-yellow-900 login"
+      >Create Product</a
+    >
+    <% } %>
+    <a href="/users/logout" class="border-2 border-yellow-900 login">Logout</a>
+    <!-- Shopping Cart -->
+    <% if(!user.isAdmin) { %>
+    <a
+      href="/carts"
+      class="border-2 border-yellow-900 cart"
+      style="display: block"
+      ><i class="fas fa-shopping-cart text-yellow-600 text-5xl"></i>
+      <div class="circle"><%= podcastCount %></div>
+    </a>
+    <% } %> <% } else { %>
+    <!-- Login  link-->
+    <a href="/podcasts" class="border-2 border-yellow-900 login"
+      >View Podcasts</a
+    >
+    <a href="/users/login" class="border-2 border-yellow-900 login">Login</a>
+    <% } %>
+  </div>
+</header>
